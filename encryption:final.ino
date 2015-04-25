@@ -67,14 +67,11 @@ void loop() {
         tagEncKey /= 10; // "right shift" the number
     }
     
-    //Work Computer
-    //This tagID is generated from your NFC tag. See https://www.youtube.com/watch?v=iVhH0TtPTNU#t=89 for more info.
     if(tagID == 123456789) {
       
       int32_t passwordLength = 11;
       
       //If you need to change your password, use the following lines to encrypt the new password.
-      //TIP: Make sure to comment out the ctrl-alt-delete code above before running
       //char password[] = "secretpass!"; //Delete this unencrypted password before using in your NFC computer unlocker in production
      // printEncryptedPasswordByKey(password, passwordLength, key);
       
@@ -84,11 +81,6 @@ void loop() {
 
 };
 
-
-      /** 
-        * End making changes 
-        */
-      
       int32_t n_chunks = sizeof(chunks)/sizeof(chunks[0]);
       char* decryptedPassword = decryptPasswordByKey(chunks, n_chunks, key);
       KeyboardWritePass(decryptedPassword, passwordLength);
