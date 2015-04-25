@@ -56,7 +56,6 @@ void loop() {
     tagEncKey <<= 8; tagEncKey |= uid[3];
     tagEncKey <<= 8; tagEncKey |= uid[2];
     tagEncKey <<= 8; tagEncKey |= uid[1];
-    Serial.println(tagEncKey);
 
     uint8_t key[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
     int i = 0;
@@ -70,18 +69,21 @@ void loop() {
     
     //Work Computer
     //This tagID is generated from your NFC tag. See https://www.youtube.com/watch?v=iVhH0TtPTNU#t=89 for more info.
-    if(tagID == 1392502292) {
+    if(tagID == 123456789) {
       
       int32_t passwordLength = 11;
       
       //If you need to change your password, use the following lines to encrypt the new password.
       //TIP: Make sure to comment out the ctrl-alt-delete code above before running
-      char password[] = "sesreteads!"; //Delete this unencrypted password before using in your NFC computer unlocker in production
-      printEncryptedPasswordByKey(password, passwordLength, key);
+      //char password[] = "secretpass!"; //Delete this unencrypted password before using in your NFC computer unlocker in production
+     // printEncryptedPasswordByKey(password, passwordLength, key);
       
       //Paste encrypted password encoded in decimal from serial monitor here.
       //Encrypted and encoded password chunks:
-     char chunks[1][16] ={{55,122,63,143,77,7,254,110,11,220,45,60,80,3,120,154}};
+     char chunks[1][16] ={{12,184,73,154,168,445,53,23,76,459,126,458,29,44,71,72}
+
+};
+
 
       /** 
         * End making changes 
